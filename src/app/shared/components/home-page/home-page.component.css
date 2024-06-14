@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.button-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  margin: 10px 0;
+}
+
+.session-link {
+  text-decoration: none;
+  display: inline-block;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 200px; /* Fixed width to ensure both buttons are the same size */
+  text-align: center;
+}
+
+.session-link p {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0; /* Ensure no extra margin is added */
+}
+
+.session-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}

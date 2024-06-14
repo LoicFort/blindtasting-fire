@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="guesserForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="domain">Domaine</label>
+      <input id="domain" formControlName="domain" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="bottleName">Nom de la bouteille</label>
+      <input id="bottleName" formControlName="bottleName" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="vintage">Millésime</label>
+      <input id="vintage" formControlName="vintage" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="grapeVariety">Cépage-s</label>
+      <input id="grapeVariety" formControlName="grapeVariety" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+

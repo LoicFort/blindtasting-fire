@@ -1,0 +1,23 @@
+<ng-container *ngIf="guesses">
+  <ng-container *ngFor="let guess  of guesses | async">
+    <div>
+      <p>
+        {{ guess.username }} a répondu.
+      </p>
+    </div>
+  </ng-container>
+</ng-container>
+<div>
+  <p>
+    Il fallait deviner:
+  </p>
+  <ul *ngIf="wineToGuess | async as wine ">
+    <li>{{ wine.domain }}</li>
+    <li>{{ wine.bottleName }}</li>
+    <li>{{ wine.vintage }}</li>
+    <li>{{ wine.grapeVariety }}</li>
+  </ul>
+</div>
+
+
+
