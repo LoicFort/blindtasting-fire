@@ -1,23 +1,50 @@
-<ng-container *ngIf="guesses">
-  <ng-container *ngFor="let guess  of guesses | async">
-    <div>
-      <p>
-        {{ guess.username }} a répondu.
-      </p>
+<div class="container">
+  <h2>
+    Bouteille à deviner
+  </h2>
+  <ng-container *ngIf="wine | async as wine; else spinner">
+    <div class="result">
+
+      <app-result-card [wine]="wine" [result]=true class="topResult"></app-result-card>
     </div>
   </ng-container>
-</ng-container>
-<div>
-  <p>
-    Il fallait deviner:
-  </p>
-  <ul *ngIf="wineToGuess | async as wine ">
-    <li>{{ wine.domain }}</li>
-    <li>{{ wine.bottleName }}</li>
-    <li>{{ wine.vintage }}</li>
-    <li>{{ wine.grapeVariety }}</li>
-  </ul>
+  <ng-template #spinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+
+  <h2>
+    Propositions
+  </h2>
+  <ng-container *ngIf="guesses | async; else guessSpinner">
+    <div class="guesses">
+      <ng-container *ngFor="let guess  of guesses | async, index as i">
+        <mat-card class="card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>bouteille: {{ guess.bottleName }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>domaine: {{ guess.domain }}</p>
+            <p>millésime: {{ guess.vintage }}</p>
+          </mat-card-content>
+          <mat-card-footer>
+            <mat-chip-set aria-label="cépage-s" *ngFor="let grape of guess.grapeVariety">
+              <mat-chip>{{ grape }}</mat-chip>
+            </mat-chip-set>
+          </mat-card-footer>
+        </mat-card>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #guessSpinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  <button mat-icon-button color="primary" (click)="goHome()"
+          class="go-home-btn">
+    <mat-icon>home</mat-icon>
+  </button>
 </div>
+
+
 
 
 

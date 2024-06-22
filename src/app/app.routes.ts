@@ -6,7 +6,7 @@ import {GuesserPageComponent} from "./shared/components/guesser-page/guesser-pag
 import {ResultPageComponent} from "./shared/components/result-page/result-page.component";
 
 export const routes: Routes = [
- 
+
   {
     path: 'create',
     component: CreateSessionComponent
@@ -14,10 +14,6 @@ export const routes: Routes = [
   {
     path: 'guess-wine',
     component: GuesserPageComponent
-  },
-  {
-    path: 'join',
-    component: JoinSessionComponent
   },
   {
     path: 'result',

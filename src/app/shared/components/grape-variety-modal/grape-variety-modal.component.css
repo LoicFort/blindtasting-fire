@@ -1,0 +1,63 @@
+
+.selected-chip {
+  background-color: limegreen !important;
+}
+
+.dialog-content {
+  padding: 20px;
+}
+
+.dialog-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.chip-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.custom-chip {
+  background-color: #f0f0f0;
+  min-width: 130px;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-chip:hover {
+  background-color: #e0e0e0;
+}
+
+.selected-chip {
+  background-color: #4caf50 !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.ok-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ok-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

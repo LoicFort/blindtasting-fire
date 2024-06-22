@@ -5,7 +5,7 @@ export interface CreateSessionForm {
   username:  FormControl<string | null>;
   domain: FormControl<string | null>;
   bottleName: FormControl<string | null>;
-  vintage: FormControl<string | null>;
-  grapeVariety: FormControl<string | null>;
+  vintage: FormControl<number | null>;
+  grapeVariety: FormControl<string[] | null>;
 
 }

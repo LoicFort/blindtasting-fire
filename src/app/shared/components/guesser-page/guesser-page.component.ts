@@ -1,38 +1,62 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {Wine} from "../../models/wine";
-import {Router} from "@angular/router";
+import {AbstractWineFormComponent} from "../abstract-wine-form/abstract-wine-form.component";
+import {MatIcon} from "@angular/material/icon";
+import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatButton, MatIconButton} from "@angular/material/button";
+import {MatDatepickerInput, MatDatepickerToggle, MatDateRangePicker} from "@angular/material/datepicker";
+import {MatInput} from "@angular/material/input";
+import {provideNativeDateAdapter} from "@angular/material/core";
+import {DatePipe} from "@angular/common";
 import {UsersService} from "../../../core/services/users.service";
-import {GuesserForm} from "../../models/wineForm";
+import { Router} from "@angular/router";
+import {Wine} from "../../models/wine";
 
 
 @Component({
   selector: 'app-guesser-page',
   standalone: true,
+  providers: [provideNativeDateAdapter(), DatePipe],
   imports: [
-    ReactiveFormsModule
+    FormsModule,
+    MatButton,
+    MatDateRangePicker,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+    DatePipe,
+    MatFormField,
+    MatIconButton,
+    MatInput,
+    MatIcon,
+    MatLabel,
+    ReactiveFormsModule,
+    MatIcon,
+    MatSuffix
+
   ],
-  templateUrl: './guesser-page.component.html',
-  styleUrl: './guesser-page.component.css'
+  templateUrl: '../abstract-wine-form/abstract-wine-form.component.html',
+  styleUrl: '../abstract-wine-form/abstract-wine-form.component.css'
 })
-export class GuesserPageComponent {
-  protected guesserForm = new FormGroup<GuesserForm>({
-    domain: new FormControl(''),
-    bottleName: new FormControl(''),
-    vintage: new FormControl(''),
-    grapeVariety: new FormControl(''),
+export class GuesserPageComponent extends AbstractWineFormComponent {
+  private static GUESSER = 'GUESSER';
+  override title = 'Make your guess';
+  override submitButtonMessage = 'submit'
 
-  });
-
-  constructor(private router: Router, private usersService: UsersService) {
+  constructor(private usersService: UsersService, private router: Router) {
+    super();
   }
 
-  onSubmit(): void {
-    if (this.guesserForm.valid) {
-      this.usersService!.addGuess(this.guesserForm.value as unknown as Wine);
-      this.router!.navigate(['/result']);
+  onSubmit() {
+    if (this.wineForm.valid) {
+      let guesser = this.wineForm.value as unknown as Wine;
+      guesser.role = GuesserPageComponent.GUESSER;
+      this.usersService.addGuess(guesser);
+      this.router.navigate(['/result']);
     }
-
-
   }
+
+  onkeyup(event: Event): void {
+  }
+
+
 }

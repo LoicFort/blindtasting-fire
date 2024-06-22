@@ -1,0 +1,14 @@
+<mat-dialog-content>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Quelle session rejoindre?</mat-label>
+      <input matInput [(ngModel)]="sessionId"  type="number" placeholder="Entrez un numéro de session"
+             autocomplete="off" required>
+    </mat-form-field>
+    <mat-dialog-actions class="dialog-actions">
+      <button mat-button (click)="cancel()">No Thanks</button>
+      <button mat-button [mat-dialog-close]="sessionId()" cdkFocusInitial class="ok-button">show me!</button>
+    </mat-dialog-actions>
+</mat-dialog-content>
+
+
+

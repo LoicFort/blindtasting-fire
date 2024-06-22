@@ -1,17 +1,27 @@
-<div class="container">
-  <div class="button-section">
-    <h2>
-      <a routerLink="/create" class="session-link">
-        <p>Créer une session</p>
-      </a>
-    </h2>
-  </div>
-  <div class="separator"></div>
-  <div class="button-section">
-    <h2>
-      <a routerLink="/join" class="session-link">
-        <p>Rejoindre une session</p>
-      </a>
-    </h2>
-  </div>
+<div class="background">
+    <div class="header-container">
+      <h1 class="title">Blind Tasting</h1>
+    </div>
+
+    <div class="container">
+      <mat-card class="create-button card" appearance="outlined">
+        <a routerLink="/create" class="session-link">
+          <mat-card-content color="primary">
+            <p>Créer une session</p>
+          </mat-card-content>
+        </a>
+      </mat-card>
+      <mat-card class="join-button card" appearance="outlined">
+        <a routerLink="/guess-wine" class="session-link">
+          <mat-card-content>
+            <p>Rejoindre une session</p>
+          </mat-card-content>
+        </a>
+      </mat-card>
+      <mat-card class="join-button card" appearance="outlined">
+        <mat-card-content (click)="openShowSessionModal()">
+          <p>Afficher une session existante</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 </div>

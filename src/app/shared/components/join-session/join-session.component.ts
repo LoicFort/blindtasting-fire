@@ -32,8 +32,6 @@ export class JoinSessionComponent {
     if (this.joinSessionForm.valid) {
       const user: User = this.joinSessionForm.value as unknown as User;
       user.role = JoinSessionComponent.GUESSER;
-      this.usersService.addUser(user);
-      console.log('Form Submitted!', user);
       this.router.navigate(['/guess-wine'] ).then(r => console.log("then"))
     }
   }

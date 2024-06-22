@@ -1,27 +1,23 @@
 :host {
-  position: relative;
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-  }
-
-  .topResult {
-    order: 1;
-  }
+  display: flex;
+  justify-content: center;
 }
 
-.guesses {
+.card-container {
+  width: 80%
+}
+
+
+
+.card-header-description {
   display: flex;
   justify-content: space-between;
 }
 
 
+
 .card {
-  min-width: 350px;
-  max-width: 450px;
+  max-width: 400px;
   margin: 20px auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -58,6 +54,13 @@ mat-card-footer {
   flex-wrap: wrap;
 }
 
+mat-chip-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-right: 0.5rem;
+}
+
 mat-chip {
   background-color: #2196f3;
   color: white;
@@ -67,30 +70,18 @@ mat-chip {
   border-radius: 16px;
 }
 
-.go-home-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.1s ease;
+p {
+  margin: 8px 0;
 }
 
-.go-home-btn mat-icon {
-  font-size: 24px;
-}
+@media (max-width: 600px) {
+  .example-card {
+    max-width: 100%;
+    margin: 10px;
+  }
 
-.go-home-btn:hover {
-  background-color: rgba(63, 81, 181, 0.1); /* Lighter shade of the primary color */
-}
-
-.go-home-btn:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transform: translateY(2px);
+  mat-card-header, mat-card-footer, mat-card-content {
+    padding: 12px;
+  }
 }
 
