@@ -16,12 +16,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCTubd2olh6VWQiBDSASzrBLsCQ50W-iv4',
-  authDomain: 'blind-tasting-43ec5.firebaseapp.com',
-  projectId: 'blind-tasting-43ec5',
-  storageBucket: 'blind-tasting-43ec5.appspot.com',
-  messagingSenderId: '469711191601',
-  appId: '1:469711191601:web:c5cc092fd87ac1a7b91f10',
+  apiKey: ,
+  authDomain: ,
+  projectId: ,
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
 };
 
 export const appConfig: ApplicationConfig = {
