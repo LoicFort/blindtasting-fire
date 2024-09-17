@@ -16,14 +16,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const firebaseConfig = {
-  projectId: 'blind-tasting-ed2c2',
-  appId: '1:25746358459:web:baa4806792814b36d6299e',
+  projectId: ,
+  appId: ',
   databaseURL:
-    'https://blind-tasting-ed2c2-default-rtdb.europe-west1.firebasedatabase.app',
-  storageBucket: 'blind-tasting-ed2c2.appspot.com',
-  apiKey: 'AIzaSyB6GqRePfyzKJokrJWqjqEw3gJlEJVaK4w',
-  authDomain: 'blind-tasting-ed2c2.firebaseapp.com',
-  messagingSenderId: '25746358459',
+  storageBucket: '',
+  apiKey: '',
+  authDomain: '',
+  messagingSenderId: '',
 };
 export const appConfig: ApplicationConfig = {
   providers: [
