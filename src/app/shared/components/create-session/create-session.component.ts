@@ -57,9 +57,5 @@ export class CreateSessionComponent extends AbstractWineFormComponent {
     }
   }
 
-  onkeyup(event: Event): void {
-    console.log(event);
-  }
-
 
 }

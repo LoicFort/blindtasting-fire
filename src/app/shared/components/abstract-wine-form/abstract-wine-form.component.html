@@ -33,7 +33,7 @@
       <mat-label>Cépage-s</mat-label>
       <input matInput formControlName="grapeVariety" [value]="selectedGrapes" placeholder="Sélectionnez vos cépages"
              autocomplete="off" readonly>
-      <mat-icon matSuffix (click)="openGrapesModal()" (keyup)="onkeyup($event)" class="grapes-modal-btn">add</mat-icon>
+      <mat-icon matSuffix (click)="openGrapesModal()" class="grapes-modal-btn">add</mat-icon>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"

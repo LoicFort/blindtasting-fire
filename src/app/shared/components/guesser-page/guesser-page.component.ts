@@ -55,8 +55,6 @@ export class GuesserPageComponent extends AbstractWineFormComponent {
     }
   }
 
-  onkeyup(event: Event): void {
-  }
 
 
 }
