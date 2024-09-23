@@ -49,7 +49,7 @@ export class GuesserPageComponent extends AbstractWineFormComponent {
   onSubmit() {
     if (this.wineForm.valid) {
       let guesser = this.wineForm.value as unknown as Wine;
-      guesser.role = GuesserPageComponent.GUESSER;
+
       this.usersService.addGuess(guesser);
       this.router.navigate(['/result']);
     }

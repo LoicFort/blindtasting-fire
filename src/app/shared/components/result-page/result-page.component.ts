@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {AsyncPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
-import {Wine} from "../../models/wine";
-import {Observable} from "rxjs";
-import {UsersService} from "../../../core/services/users.service";
+import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, NgClass, NgForOf, NgIf, NgStyle } from "@angular/common";
+import { Wine } from "../../models/wine";
+import { Observable } from "rxjs";
+import { UsersService } from "../../../core/services/users.service";
 import {
   MatAccordion,
   MatExpansionPanel,
@@ -10,13 +10,13 @@ import {
   MatExpansionPanelHeader,
   MatExpansionPanelTitle
 } from "@angular/material/expansion";
-import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle} from "@angular/material/card";
-import {MatChip, MatChipSet} from "@angular/material/chips";
-import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {ResultCardComponent} from "../result-card/result-card.component";
-import {ActivatedRoute, Router} from "@angular/router";
-import {MatButton} from "@angular/material/button";
-import {MatIcon} from "@angular/material/icon";
+import { MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle } from "@angular/material/card";
+import { MatChip, MatChipSet } from "@angular/material/chips";
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { ResultCardComponent } from "../result-card/result-card.component";
+import { ActivatedRoute, Router } from "@angular/router";
+import { MatButton } from "@angular/material/button";
+import { MatIcon } from "@angular/material/icon";
 
 
 @Component({
@@ -49,27 +49,16 @@ import {MatIcon} from "@angular/material/icon";
   styleUrl: './result-page.component.css'
 })
 export class ResultPageComponent implements OnInit {
-  wine!: Observable<Wine>;
+  wine!: Wine;
   guesses: Observable<Wine[]> | undefined;
 
 
-  constructor(private usersService: UsersService, private route: ActivatedRoute, private router: Router) {
-  }
+  constructor(private router: Router, private userService: UsersService) { }
 
   ngOnInit(): void {
-    this.route.queryParams
-      .subscribe(params => {
-        if (Object.keys(params).length === 0 && params.constructor === Object) {
-          this.guesses = this.usersService.getGuesses();
-          this.wine = this.usersService.getAnswer();
+    this.userService.getWineToGuess(2).then(wineEntry => this.wine = wineEntry.wine)
 
-        } else {
-          const sessionId = +params['sessionId'];
-          this.guesses = this.usersService.showGuesses(sessionId);
-          this.wine = this.usersService.showAnswer(sessionId);
 
-        }
-      });
   }
 
   goHome(): void {

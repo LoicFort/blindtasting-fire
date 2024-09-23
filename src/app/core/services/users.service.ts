@@ -1,71 +1,66 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { map, Observable } from 'rxjs';
+
 import { Wine } from '../../shared/models/wine';
+import { WineEntry } from '../../shared/models/WineEntry';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private afs: AngularFirestore) {}
+
+
+  constructor() { }
 
   public addGuess(wine: Wine) {
-    this.afs
-      .collection(`session/${wine.sessionId}/wines`)
-      .doc(wine.username)
-      .set(wine, { merge: true })
-      .then(() => {
-        console.log('Données enregistrées avec succès !');
-      })
-      .catch((error) => {
-        console.error("Erreur lors de l'enregistrement des données : ", error);
-      });
+
   }
 
-  public createWine(wine: Wine) {
-    // this.afs.collection(`session/${wine.sessionId}/wineToGuess`)
-    //   .doc(wine.username)
-    //   .set(wine)
-    //   .then(() => {
-    //     console.log('Données enregistrées avec succès !');
-    //   })
-    //   .catch(error => {
-    //     console.error('Erreur lors de l\'enregistrement des données : ', error);
+  public createWine(wine: any): Promise<WineEntry> {
+    let dataRequest: WineEntry = {
+      user: {
+        "username": wine.username,
+        "role": "CREATOR",
+        "sessionId": wine.sessionId
+      },
+      wine: {
+        "domain": wine.domain,
+        "bottleName": wine.bottleName,
+        "vintage": wine.vintage,
+        "grape": "654665",
+      }
+    };
+    const data$ = fetch('http://localhost:9000/createWine', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataRequest)
+    }
+    ).then(res => res.json())
+    return data$;
 
-    //   });
-    this.afs.collection("session").add({"coucou" : "coucouc"})
-   
   }
 
-  public getGuesses(): Observable<Wine[]> {
+  public getWineToGuess(sessionId: number): Promise<WineEntry> {
+    const data$ = fetch(`http://localhost:9000/wineToGuess/${sessionId}`).then(res => res.json())
+    return data$;
+  }
+
+  public getGuesses() {
     let sessionId = '0';
-    return this.afs
-      .collection(`session/${sessionId}/wines`)
-      .valueChanges()
-      .pipe(map((value) => value as Wine[]));
+
   }
 
-  public getAnswer(): Observable<Wine> {
+  public getAnswer() {
     let sessionId = '0';
-    return this.afs
-      .collection(`session/${sessionId}/wineToGuess`)
-      .doc('winner')
-      .valueChanges()
-      .pipe(map((value) => value as Wine));
+
   }
 
-  public showGuesses(sessionId: number): Observable<Wine[]> {
-    return this.afs
-      .collection(`session/${sessionId}/wines`)
-      .valueChanges()
-      .pipe(map((value) => value as Wine[]));
+  public showGuesses(sessionId: number) {
+
   }
 
-  public showAnswer(sessionId: number): Observable<Wine> {
-    return this.afs
-      .collection(`session/${sessionId}/wineToGuess`)
-      .doc('winner')
-      .valueChanges()
-      .pipe(map((value) => value as Wine));
+  public showAnswer(sessionId: number) {
   }
 }

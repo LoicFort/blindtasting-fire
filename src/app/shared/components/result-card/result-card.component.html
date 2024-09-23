@@ -1,7 +1,7 @@
 <mat-accordion class="card-container">
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
-      <mat-panel-title> Réponse de {{ wine.username }}</mat-panel-title>
+      <mat-panel-title> Réponse de </mat-panel-title>
       <mat-panel-description class="card-header-description">
         Cliquez pour voir la réponse.
         <img *ngIf="result" alt="crown icon" height="50" width="50" [src]="crown">
@@ -16,8 +16,8 @@
         <p>millésime: {{ wine.vintage }}</p>
       </mat-card-content>
       <mat-card-footer>
-        <mat-chip-set aria-label="cépage-s"  *ngFor="let grape of wine.grapeVariety">
-          <mat-chip>{{ grape }}</mat-chip>
+        <mat-chip-set aria-label="cépage-s">
+          <mat-chip>{{ wine.grape }}</mat-chip>
         </mat-chip-set>
       </mat-card-footer>
     </mat-card>

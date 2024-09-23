@@ -1,11 +1,10 @@
-import {Component, inject} from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
-import {NgForOf, NgIf} from "@angular/common";
-import {MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle} from "@angular/material/card";
-import {MatChip, MatChipSet} from "@angular/material/chips";
-import {MatDialog} from "@angular/material/dialog";
-import {ViewSessionModalComponent} from "../view-session-modal/view-session-modal.component";
-import {fadeAnimation} from "../../../features/animations/animations";
+import { NgForOf, NgIf } from "@angular/common";
+import { Component, inject } from '@angular/core';
+import { MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardTitle } from "@angular/material/card";
+import { MatChip, MatChipSet } from "@angular/material/chips";
+import { MatDialog } from "@angular/material/dialog";
+import { Router, RouterLink } from "@angular/router";
+import { ViewSessionModalComponent } from "../view-session-modal/view-session-modal.component";
 
 @Component({
   selector: 'app-home-page',
@@ -23,8 +22,7 @@ import {fadeAnimation} from "../../../features/animations/animations";
     NgForOf
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css',
-  animations: [fadeAnimation]
+  styleUrl: './home-page.component.css' 
 })
 export class HomePageComponent {
   readonly dialog = inject(MatDialog);

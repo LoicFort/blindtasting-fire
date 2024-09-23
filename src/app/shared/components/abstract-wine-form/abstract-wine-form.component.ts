@@ -1,20 +1,20 @@
-import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MatButton, MatIconButton} from "@angular/material/button";
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatButton, MatIconButton } from "@angular/material/button";
 import {
   MatDatepickerInput,
   MatDatepickerToggle,
   MatDateRangePicker,
   MatMultiYearView
 } from "@angular/material/datepicker";
-import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
-import {MatIcon} from "@angular/material/icon";
-import {MatInput} from "@angular/material/input";
-import {CreateSessionForm} from "../../models/createSessionForm";
-import {MatDialog} from "@angular/material/dialog";
-import {GrapeVarietyModalComponent} from "../grape-variety-modal/grape-variety-modal.component";
-import {provideNativeDateAdapter} from "@angular/material/core";
-import {MatTooltip} from "@angular/material/tooltip";
+import { MatFormField, MatLabel, MatSuffix } from "@angular/material/form-field";
+import { MatIcon } from "@angular/material/icon";
+import { MatInput } from "@angular/material/input";
+import { CreateSessionForm } from "../../models/createSessionForm";
+import { MatDialog } from "@angular/material/dialog";
+import { GrapeVarietyModalComponent } from "../grape-variety-modal/grape-variety-modal.component";
+import { provideNativeDateAdapter } from "@angular/material/core";
+import { MatTooltip } from "@angular/material/tooltip";
 
 
 @Component({
@@ -59,11 +59,11 @@ export abstract class AbstractWineFormComponent {
 
   openGrapesModal(): void {
     const dialogRef = this.dialog.open(GrapeVarietyModalComponent, {
-          data: {selectedGrapes: this.selectedGrapes}
+      data: { selectedGrapes: this.selectedGrapes }
 
-        }
-      )
-    ;
+    }
+    )
+      ;
 
     dialogRef.afterClosed().subscribe(result => {
 
